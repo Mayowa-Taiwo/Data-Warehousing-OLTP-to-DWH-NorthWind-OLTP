@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{AFAF894E-4471-4402-A770-D2793CE2BE16}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{3D952503-9F65-41D7-B16E-994C32983556}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,20 +44,20 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\NorthwindOLTPtoOLAP"
       DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
+      DTS:Description="DataTransformationDimProducts"
       DTS:DTSID="{CA69800D-F020-4621-8F48-E4E18FEAFB41}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task">
+      DTS:ObjectName="NorthwindOLTPtoOLAP">
       <DTS:Variables />
       <DTS:ObjectData>
         <pipeline
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\DataSourceSalesProductView"
+              refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
@@ -106,7 +106,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\DataSourceSalesProductView.Connections[OleDbConnection]"
+                  refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LocalHost.Northwind]"
                   connectionManagerRefId="Package.ConnectionManagers[LocalHost.Northwind]"
                   description="The OLE DB runtime connection used to access the database."
@@ -114,203 +114,203 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output]"
+                  refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product ID]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product ID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product ID]"
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product ID]"
                       name="Product ID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product Name]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
                       length="40"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product Name]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product Name]"
                       name="Product Name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Quantity Per Unit]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Quantity Per Unit]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[QuantityPerUnit]"
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[QuantityPerUnit]"
                       length="20"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Quantity Per Unit]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Quantity Per Unit]"
                       name="Quantity Per Unit"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units In Stock]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units In Stock]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitsInStock]"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units In Stock]"
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitsInStock]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units In Stock]"
                       name="Units In Stock"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units On Order]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units On Order]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitsOnOrder]"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units On Order]"
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitsOnOrder]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units On Order]"
                       name="Units On Order"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Reorder Level]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Reorder Level]"
                       dataType="i2"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ReorderLevel]"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Reorder Level]"
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ReorderLevel]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Reorder Level]"
                       name="Reorder Level"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Category Name]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Category Name]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[CategoryName]"
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[CategoryName]"
                       length="15"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Category Name]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Category Name]"
                       name="Category Name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Unit Price]"
                       dataType="cy"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Unit Price]"
                       name="Unit Price"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
                       dataType="i4"
                       name="ProductID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
                       dataType="wstr"
                       length="40"
                       name="ProductName" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[SupplierID]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[SupplierID]"
                       dataType="i4"
                       name="SupplierID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[CategoryID]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[CategoryID]"
                       dataType="i4"
                       name="CategoryID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[QuantityPerUnit]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[QuantityPerUnit]"
                       dataType="wstr"
                       length="20"
                       name="QuantityPerUnit" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
                       dataType="cy"
                       name="UnitPrice" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitsInStock]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitsInStock]"
                       dataType="i2"
                       name="UnitsInStock" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitsOnOrder]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[UnitsOnOrder]"
                       dataType="i2"
                       name="UnitsOnOrder" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ReorderLevel]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[ReorderLevel]"
                       dataType="i2"
                       name="ReorderLevel" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[Discontinued]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[Discontinued]"
                       dataType="bool"
                       name="Discontinued" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[CategoryName]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[CategoryName]"
                       dataType="wstr"
                       length="15"
                       name="CategoryName" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[Description]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[Description]"
                       dataType="nText"
                       name="Description" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[Picture]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].ExternalColumns[Picture]"
                       dataType="image"
                       name="Picture" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output]"
+                  refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ProductID]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ProductID]"
                       name="ProductID" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ProductName]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ProductName]"
                       name="ProductName" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[QuantityPerUnit]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[QuantityPerUnit]"
                       dataType="wstr"
                       length="20"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[QuantityPerUnit]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[QuantityPerUnit]"
                       name="QuantityPerUnit" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitsInStock]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitsInStock]"
                       dataType="i2"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitsInStock]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitsInStock]"
                       name="UnitsInStock" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitsOnOrder]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitsOnOrder]"
                       dataType="i2"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitsOnOrder]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitsOnOrder]"
                       name="UnitsOnOrder" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ReorderLevel]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ReorderLevel]"
                       dataType="i2"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ReorderLevel]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ReorderLevel]"
                       name="ReorderLevel" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[CategoryName]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[CategoryName]"
                       dataType="wstr"
                       length="15"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[CategoryName]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[CategoryName]"
                       name="CategoryName" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                     <outputColumn
-                      refId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      refId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
                       dataType="cy"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
                       name="UnitPrice" />
                   </outputColumns>
                   <externalMetadataColumns />
@@ -318,11 +318,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
+              refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
+              name="LoadtoDimProductTable"
               usesDispositions="true"
               version="4">
               <properties>
@@ -333,7 +333,7 @@
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[ProductsDIM]</property>
+                  name="OpenRowset">[dbo].[DimProduct]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -375,7 +375,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[LocalHost.NorthWindDWH]"
                   connectionManagerRefId="Package.ConnectionManagers[LocalHost.NorthWindDWH]"
                   description="The OLE DB runtime connection used to access the database."
@@ -383,100 +383,100 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product ID]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].Columns[Product ID]"
                       cachedDataType="i4"
                       cachedName="Product ID"
                       cachedSortKeyPosition="1"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product ID]"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Product ID]" />
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Product ID]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Product ID]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product Name]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].Columns[Product Name]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Product Name"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Name]"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Product Name]" />
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Product Name]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Product Name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity Per Unit]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].Columns[Quantity Per Unit]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Quantity Per Unit"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity Per Unit]"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Quantity Per Unit]" />
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Quantity Per Unit]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Quantity Per Unit]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Units In Stock]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].Columns[Units In Stock]"
                       cachedDataType="i2"
                       cachedName="Units In Stock"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Units In Stock]"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Units In Stock]" />
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Units In Stock]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Units In Stock]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Units On Order]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].Columns[Units On Order]"
                       cachedDataType="i2"
                       cachedName="Units On Order"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Units On Order]"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Units On Order]" />
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Units On Order]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Units On Order]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Reorder Level]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].Columns[Reorder Level]"
                       cachedDataType="i2"
                       cachedName="Reorder Level"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Reorder Level]"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Reorder Level]" />
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Reorder Level]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Reorder Level]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Category Name]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].Columns[Category Name]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="Category Name"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category Name]"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Category Name]" />
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Category Name]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Category Name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Unit Price]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].Columns[Unit Price]"
                       cachedDataType="cy"
                       cachedName="Unit Price"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Unit Price]" />
+                      externalMetadataColumnId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Unit Price]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product ID]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Product ID]"
                       dataType="i4"
                       name="Product ID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product Name]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Product Name]"
                       dataType="wstr"
                       length="40"
                       name="Product Name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity Per Unit]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Quantity Per Unit]"
                       dataType="wstr"
                       length="20"
                       name="Quantity Per Unit" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Units In Stock]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Units In Stock]"
                       dataType="i2"
                       name="Units In Stock" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Units On Order]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Units On Order]"
                       dataType="i2"
                       name="Units On Order" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Reorder Level]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Reorder Level]"
                       dataType="i2"
                       name="Reorder Level" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category Name]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Category Name]"
                       dataType="wstr"
                       length="15"
                       name="Category Name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
                       dataType="cy"
                       name="Unit Price" />
                   </externalMetadataColumns>
@@ -484,22 +484,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -508,7 +508,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\SortedbyProductID"
+              refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID"
               componentClassID="Microsoft.Sort"
               contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
@@ -527,14 +527,14 @@
               </properties>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\SortedbyProductID.Inputs[Sort Input]"
+                  refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Inputs[Sort Input]"
                   name="Sort Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Inputs[Sort Input].Columns[Product ID]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Inputs[Sort Input].Columns[Product ID]"
                       cachedDataType="i4"
                       cachedName="Product ID"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product ID]">
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product ID]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -547,11 +547,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Inputs[Sort Input].Columns[Product Name]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Inputs[Sort Input].Columns[Product Name]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Product Name"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product Name]">
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product Name]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -564,11 +564,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Inputs[Sort Input].Columns[Quantity Per Unit]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Inputs[Sort Input].Columns[Quantity Per Unit]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Quantity Per Unit"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Quantity Per Unit]">
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Quantity Per Unit]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -581,10 +581,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Inputs[Sort Input].Columns[Units In Stock]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Inputs[Sort Input].Columns[Units In Stock]"
                       cachedDataType="i2"
                       cachedName="Units In Stock"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units In Stock]">
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units In Stock]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -597,10 +597,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Inputs[Sort Input].Columns[Units On Order]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Inputs[Sort Input].Columns[Units On Order]"
                       cachedDataType="i2"
                       cachedName="Units On Order"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units On Order]">
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units On Order]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -613,10 +613,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Inputs[Sort Input].Columns[Reorder Level]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Inputs[Sort Input].Columns[Reorder Level]"
                       cachedDataType="i2"
                       cachedName="Reorder Level"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Reorder Level]">
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Reorder Level]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -629,11 +629,11 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Inputs[Sort Input].Columns[Category Name]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Inputs[Sort Input].Columns[Category Name]"
                       cachedDataType="wstr"
                       cachedLength="15"
                       cachedName="Category Name"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Category Name]">
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Category Name]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -646,10 +646,10 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Inputs[Sort Input].Columns[Unit Price]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Inputs[Sort Input].Columns[Unit Price]"
                       cachedDataType="cy"
                       cachedName="Unit Price"
-                      lineageId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Unit Price]">
+                      lineageId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Unit Price]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -667,14 +667,14 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output]"
+                  refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output]"
                   isSorted="true"
                   name="Sort Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Product ID]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Product ID]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Product ID]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Product ID]"
                       name="Product ID"
                       sortKeyPosition="1">
                       <properties>
@@ -682,101 +682,101 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product ID]}</property>
+                          name="SortColumnId">#{Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product ID]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Product Name]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Product Name]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Product Name]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Product Name]"
                       name="Product Name">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product Name]}</property>
+                          name="SortColumnId">#{Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Product Name]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Quantity Per Unit]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Quantity Per Unit]"
                       dataType="wstr"
                       length="20"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Quantity Per Unit]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Quantity Per Unit]"
                       name="Quantity Per Unit">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Quantity Per Unit]}</property>
+                          name="SortColumnId">#{Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Quantity Per Unit]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Units In Stock]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Units In Stock]"
                       dataType="i2"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Units In Stock]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Units In Stock]"
                       name="Units In Stock">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units In Stock]}</property>
+                          name="SortColumnId">#{Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units In Stock]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Units On Order]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Units On Order]"
                       dataType="i2"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Units On Order]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Units On Order]"
                       name="Units On Order">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units On Order]}</property>
+                          name="SortColumnId">#{Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Units On Order]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Reorder Level]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Reorder Level]"
                       dataType="i2"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Reorder Level]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Reorder Level]"
                       name="Reorder Level">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Reorder Level]}</property>
+                          name="SortColumnId">#{Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Reorder Level]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Category Name]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Category Name]"
                       dataType="wstr"
                       length="15"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Category Name]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Category Name]"
                       name="Category Name">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Category Name]}</property>
+                          name="SortColumnId">#{Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Category Name]}</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Unit Price]"
+                      refId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Unit Price]"
                       dataType="cy"
-                      lineageId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output].Columns[Unit Price]"
+                      lineageId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output].Columns[Unit Price]"
                       name="Unit Price">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
-                          name="SortColumnId">#{Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Unit Price]}</property>
+                          name="SortColumnId">#{Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output].Columns[Unit Price]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -787,15 +787,15 @@
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow Task\SortedbyProductID.Inputs[Sort Input]"
+              refId="Package\NorthwindOLTPtoOLAP.Paths[OLE DB Source Output]"
+              endId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Inputs[Sort Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\DataSourceSalesProductView.Outputs[OLE DB Source Output]" />
+              startId="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView.Outputs[OLE DB Source Output]" />
             <path
-              refId="Package\Data Flow Task.Paths[Sort Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              refId="Package\NorthwindOLTPtoOLAP.Paths[Sort Output]"
+              endId="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable.Inputs[OLE DB Destination Input]"
               name="Sort Output"
-              startId="Package\Data Flow Task\SortedbyProductID.Outputs[Sort Output]" />
+              startId="Package\NorthwindOLTPtoOLAP\SortedbyProductID.Outputs[Sort Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -815,50 +815,50 @@
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="152,42.6666666666667"
-          Id="Package\Data Flow Task"
+          Id="Package\NorthwindOLTPtoOLAP"
           TopLeft="5.5,5.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\NorthwindOLTPtoOLAP">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="216,42.6666666666667"
-          Id="Package\Data Flow Task\DataSourceSalesProductView"
+          Id="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView"
           TopLeft="105.999996840954,44.9999986588955" />
         <NodeLayout
           Size="168,42.6666666666667"
-          Id="Package\Data Flow Task\SortedbyProductID"
+          Id="Package\NorthwindOLTPtoOLAP\SortedbyProductID"
           TopLeft="223.99999332428,118.999996453524" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          Id="Package\NorthwindOLTPtoOLAP.Paths[OLE DB Source Output]"
           TopLeft="213.999996840954,87.6666653255622">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="93.999996483326,31.3333311279616"
+              EndConnector="93.999996483326,31.3333311279618"
               Start="0,0"
-              End="93.999996483326,23.8333311279616">
+              End="93.999996483326,23.8333311279618">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,11.6666655639808" />
+                    End="0,11.6666655639809" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,11.6666655639808"
-                    Point2="0,15.6666655639808"
-                    Point3="4,15.6666655639808" />
+                    Point1="0,11.6666655639809"
+                    Point2="0,15.6666655639809"
+                    Point3="4,15.6666655639809" />
                   <mssgle:LineSegment
-                    End="89.999996483326,15.6666655639808" />
+                    End="89.999996483326,15.6666655639809" />
                   <mssgle:CubicBezierSegment
-                    Point1="89.999996483326,15.6666655639808"
-                    Point2="93.999996483326,15.6666655639808"
-                    Point3="93.999996483326,19.6666655639808" />
+                    Point1="89.999996483326,15.6666655639809"
+                    Point2="93.999996483326,15.6666655639809"
+                    Point3="93.999996483326,19.6666655639809" />
                   <mssgle:LineSegment
-                    End="93.999996483326,23.8333311279616" />
+                    End="93.999996483326,23.8333311279618" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -869,34 +869,34 @@
         </EdgeLayout>
         <NodeLayout
           Size="172,42.6666666666667"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="382.999988585711,225.999993264675" />
+          Id="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable"
+          TopLeft="291.249986980111,238.54998862505" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="307.99999332428,161.66666312019">
+          Id="Package\NorthwindOLTPtoOLAP.Paths[Sort Output]"
+          TopLeft="307.99999332428,161.666663120191">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="160.999995261431,64.3333301444849"
+              EndConnector="69.2499936558308,76.8833255048592"
               Start="0,0"
-              End="160.999995261431,56.8333301444849">
+              End="69.2499936558308,69.3833255048592">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.1666650722424" />
+                    End="0,34.4416627524296" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,28.1666650722424"
-                    Point2="0,32.1666650722424"
-                    Point3="4,32.1666650722424" />
+                    Point1="0,34.4416627524296"
+                    Point2="0,38.4416627524296"
+                    Point3="4,38.4416627524296" />
                   <mssgle:LineSegment
-                    End="156.999995261431,32.1666650722424" />
+                    End="65.2499936558308,38.4416627524296" />
                   <mssgle:CubicBezierSegment
-                    Point1="156.999995261431,32.1666650722424"
-                    Point2="160.999995261431,32.1666650722424"
-                    Point3="160.999995261431,36.1666650722424" />
+                    Point1="65.2499936558308,38.4416627524296"
+                    Point2="69.2499936558308,38.4416627524296"
+                    Point3="69.2499936558308,42.4416627524296" />
                   <mssgle:LineSegment
-                    End="160.999995261431,56.8333301444849" />
+                    End="69.2499936558308,69.3833255048592" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -909,7 +909,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\DataSourceSalesProductView">
+    design-time-name="Package\NorthwindOLTPtoOLAP\DataSourceSalesProductView">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -922,7 +922,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\NorthwindOLTPtoOLAP\LoadtoDimProductTable">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

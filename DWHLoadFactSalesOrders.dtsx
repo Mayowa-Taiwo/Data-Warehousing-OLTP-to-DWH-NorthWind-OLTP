@@ -1,0 +1,1621 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/28/2023 6:53:53 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-RS9P4A5"
+  DTS:CreatorName="DESKTOP-RS9P4A5\Admin"
+  DTS:DTSID="{6996CF9C-02A3-4915-A277-02F84188C714}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5131.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{22FF80BA-6816-45ED-8C2B-A741F90B6928}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Northwind]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E78E8BD7-CC7D-45E9-A631-63E4A5FAF90F}"
+      DTS:ObjectName="LocalHost.Northwind">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Northwind;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{E78E8BD7-CC7D-45E9-A631-63E4A5FAF90F}LocalHost.Northwind;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.NorthWindDWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AB1054C2-A817-4D67-BD47-A1ACD213030F}"
+      DTS:ObjectName="LocalHost.NorthWindDWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=NorthWindDWH;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{AB1054C2-A817-4D67-BD47-A1ACD213030F}LocalHost.NorthWindDWH;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DF549212-3F33-4925-B42D-4ED6E47CD6C9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\DataSourceSalesOrderstableView"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DataSourceSalesOrderstableView"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SalesOrdersTables]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.Northwind]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.Northwind]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Order ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Order ID]"
+                      name="Order ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Customer ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Customer ID]"
+                      name="Customer ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Employee ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Employee ID]"
+                      name="Employee ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Order Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Order Date]"
+                      name="Order Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Required Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[RequiredDate]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Required Date]"
+                      name="Required Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Shipped Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShippedDate]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Shipped Date]"
+                      name="Shipped Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Ship Via]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipVia]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Ship Via]"
+                      name="Ship Via"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Freight]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Freight]"
+                      name="Freight"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Ship Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipName]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Ship Name]"
+                      name="Ship Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Ship City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipCity]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Ship City]"
+                      name="Ship City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Ship Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipRegion]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Ship Region]"
+                      name="Ship Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Product ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Product ID]"
+                      name="Product ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Unit Price]"
+                      name="Unit Price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Discount]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Discount]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Discount]"
+                      name="Discount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Territory ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[TerritoryID]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Territory ID]"
+                      name="Territory ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Region ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[RegionID]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Region ID]"
+                      name="Region ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Territory ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[TerritoryDescription]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Territory ]"
+                      name="Territory "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Region ]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[RegionDescription]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Region ]"
+                      name="Region "
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ProductName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ProductName]"
+                      name="ProductName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[SupplierID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[SupplierID]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[SupplierID]"
+                      name="SupplierID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[QuantityPerUnit]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[QuantityPerUnit]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[QuantityPerUnit]"
+                      name="QuantityPerUnit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr1]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr1]"
+                      name="Expr1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[UnitsInStock]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[UnitsInStock]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[UnitsInStock]"
+                      name="UnitsInStock"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[UnitsOnOrder]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[UnitsOnOrder]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[UnitsOnOrder]"
+                      name="UnitsOnOrder"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ReorderLevel]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ReorderLevel]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ReorderLevel]"
+                      name="ReorderLevel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Discontinued]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Discontinued]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Discontinued]"
+                      name="Discontinued"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr2]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr2]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr2]"
+                      name="Expr2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ContactName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ContactName]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ContactName]"
+                      name="ContactName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ContactTitle]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ContactTitle]"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ContactTitle]"
+                      name="ContactTitle"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[CompanyName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[CompanyName]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[CompanyName]"
+                      name="CompanyName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Address]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Address]"
+                      length="60"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Address]"
+                      name="Address"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[PostalCode]"
+                      name="PostalCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Country]"
+                      name="Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Phone]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      length="24"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Phone]"
+                      name="Phone"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Fax]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Fax]"
+                      length="24"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Fax]"
+                      name="Fax"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[HomePage]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[HomePage]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[HomePage]"
+                      name="HomePage"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ShipperID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipperID]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ShipperID]"
+                      name="ShipperID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr3]"
+                      length="40"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr3]"
+                      name="Expr3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr4]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr4]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr4]"
+                      name="Expr4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[LastName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[LastName]"
+                      name="LastName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[FirstName]"
+                      name="FirstName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[BirthDate]"
+                      name="BirthDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[HireDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[HireDate]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[HireDate]"
+                      name="HireDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr6]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr6]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr6]"
+                      name="Expr6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr7]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr7]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr7]"
+                      name="Expr7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr9]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr9]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Expr9]"
+                      name="Expr9"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Extension]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Extension]"
+                      length="4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[Extension]"
+                      name="Extension"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ReportsTo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ReportsTo]"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].Columns[ReportsTo]"
+                      name="ReportsTo"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[OrderID]"
+                      dataType="i4"
+                      name="OrderID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      name="CustomerID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[EmployeeID]"
+                      dataType="i4"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[RequiredDate]"
+                      dataType="dbTimeStamp"
+                      name="RequiredDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShippedDate]"
+                      dataType="dbTimeStamp"
+                      name="ShippedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipVia]"
+                      dataType="i4"
+                      name="ShipVia" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Freight]"
+                      dataType="cy"
+                      name="Freight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ShipName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipAddress]"
+                      dataType="wstr"
+                      length="60"
+                      name="ShipAddress" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipCity]"
+                      dataType="wstr"
+                      length="15"
+                      name="ShipCity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipRegion]"
+                      dataType="wstr"
+                      length="15"
+                      name="ShipRegion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipPostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="ShipPostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                      dataType="i4"
+                      name="ProductID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                      dataType="cy"
+                      name="UnitPrice" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      dataType="i2"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Discount]"
+                      dataType="r4"
+                      name="Discount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[TerritoryID]"
+                      dataType="wstr"
+                      length="20"
+                      name="TerritoryID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[RegionID]"
+                      dataType="i4"
+                      name="RegionID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[TerritoryDescription]"
+                      dataType="wstr"
+                      length="50"
+                      name="TerritoryDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[RegionDescription]"
+                      dataType="wstr"
+                      length="50"
+                      name="RegionDescription" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      name="ProductName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[SupplierID]"
+                      dataType="i4"
+                      name="SupplierID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[QuantityPerUnit]"
+                      dataType="wstr"
+                      length="20"
+                      name="QuantityPerUnit" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr1]"
+                      dataType="cy"
+                      name="Expr1" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[UnitsInStock]"
+                      dataType="i2"
+                      name="UnitsInStock" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[UnitsOnOrder]"
+                      dataType="i2"
+                      name="UnitsOnOrder" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ReorderLevel]"
+                      dataType="i2"
+                      name="ReorderLevel" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Discontinued]"
+                      dataType="bool"
+                      name="Discontinued" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr2]"
+                      dataType="i4"
+                      name="Expr2" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ContactName]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ContactTitle]"
+                      dataType="wstr"
+                      length="30"
+                      name="ContactTitle" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      name="CompanyName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      name="Address" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="15"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="PostalCode" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Phone]"
+                      dataType="wstr"
+                      length="24"
+                      name="Phone" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Fax]"
+                      dataType="wstr"
+                      length="24"
+                      name="Fax" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[HomePage]"
+                      dataType="nText"
+                      name="HomePage" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ShipperID]"
+                      dataType="i4"
+                      name="ShipperID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr3]"
+                      dataType="wstr"
+                      length="40"
+                      name="Expr3" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr4]"
+                      dataType="i4"
+                      name="Expr4" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[LastName]"
+                      dataType="wstr"
+                      length="20"
+                      name="LastName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[FirstName]"
+                      dataType="wstr"
+                      length="10"
+                      name="FirstName" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      name="BirthDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[HireDate]"
+                      dataType="dbTimeStamp"
+                      name="HireDate" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr6]"
+                      dataType="wstr"
+                      length="15"
+                      name="Expr6" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr7]"
+                      dataType="wstr"
+                      length="15"
+                      name="Expr7" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Expr9]"
+                      dataType="wstr"
+                      length="15"
+                      name="Expr9" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[Extension]"
+                      dataType="wstr"
+                      length="4"
+                      name="Extension" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output].ExternalColumns[ReportsTo]"
+                      dataType="i4"
+                      name="ReportsTo" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[OrderID]"
+                      name="OrderID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[CustomerID]"
+                      name="CustomerID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[RequiredDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[RequiredDate]"
+                      name="RequiredDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShippedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShippedDate]"
+                      name="ShippedDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShipVia]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShipVia]"
+                      name="ShipVia" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Freight]"
+                      name="Freight" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShipName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShipName]"
+                      name="ShipName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShipCity]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShipCity]"
+                      name="ShipCity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShipRegion]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShipRegion]"
+                      name="ShipRegion" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                      name="ProductID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                      name="UnitPrice" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Discount]"
+                      dataType="r4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Discount]"
+                      name="Discount" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[TerritoryID]"
+                      name="TerritoryID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[RegionID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[RegionID]"
+                      name="RegionID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ProductName]"
+                      name="ProductName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[SupplierID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[SupplierID]"
+                      name="SupplierID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[QuantityPerUnit]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[QuantityPerUnit]"
+                      name="QuantityPerUnit" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr1]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr1]"
+                      name="Expr1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[UnitsInStock]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[UnitsInStock]"
+                      name="UnitsInStock" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[UnitsOnOrder]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[UnitsOnOrder]"
+                      name="UnitsOnOrder" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ReorderLevel]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ReorderLevel]"
+                      name="ReorderLevel" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Discontinued]"
+                      dataType="bool"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Discontinued]"
+                      name="Discontinued" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr2]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr2]"
+                      name="Expr2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ContactName]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ContactName]"
+                      name="ContactName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ContactTitle]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ContactTitle]"
+                      name="ContactTitle" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[CompanyName]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[CompanyName]"
+                      name="CompanyName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Address]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Address]"
+                      name="Address" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[City]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[City]"
+                      name="City" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[PostalCode]"
+                      name="PostalCode" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Country]"
+                      name="Country" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Phone]"
+                      name="Phone" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Fax]"
+                      dataType="wstr"
+                      length="24"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Fax]"
+                      name="Fax" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[HomePage]"
+                      dataType="nText"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[HomePage]"
+                      name="HomePage" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShipperID]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ShipperID]"
+                      name="ShipperID" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr3]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr3]"
+                      name="Expr3" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr4]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr4]"
+                      name="Expr4" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[LastName]"
+                      name="LastName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[FirstName]"
+                      name="FirstName" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[BirthDate]"
+                      name="BirthDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[HireDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[HireDate]"
+                      name="HireDate" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr6]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr6]"
+                      name="Expr6" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr7]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr7]"
+                      name="Expr7" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr9]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Expr9]"
+                      name="Expr9" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Extension]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[Extension]"
+                      name="Extension" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ReportsTo]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ReportsTo]"
+                      name="ReportsTo" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[TerritoryDescription]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[TerritoryDescription]"
+                      name="TerritoryDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[RegionDescription]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[RegionDescription]"
+                      name="RegionDescription" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[FactSalesOrders]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.NorthWindDWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.NorthWindDWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Order ID]"
+                      cachedDataType="i4"
+                      cachedName="Order ID"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Order ID]"
+                      lineageId="Package\Data Flow Task\201:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Customer ID]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="Customer ID"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer ID]"
+                      lineageId="Package\Data Flow Task\203:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Employee ID]"
+                      cachedDataType="i4"
+                      cachedName="Employee ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Employee ID]"
+                      lineageId="Package\Data Flow Task\205:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Order Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Order Date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Order Date]"
+                      lineageId="Package\Data Flow Task\207:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Required Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Required Date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Required Date]"
+                      lineageId="Package\Data Flow Task\209:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Shipped Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Shipped Date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shipped Date]"
+                      lineageId="Package\Data Flow Task\211:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Ship Via]"
+                      cachedDataType="i4"
+                      cachedName="Ship Via"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship Via]"
+                      lineageId="Package\Data Flow Task\213:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Freight]"
+                      cachedDataType="cy"
+                      cachedName="Freight"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      lineageId="Package\Data Flow Task\215:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Ship Name]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Ship Name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship Name]"
+                      lineageId="Package\Data Flow Task\217:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Ship City]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Ship City"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship City]"
+                      lineageId="Package\Data Flow Task\219:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Ship Region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Ship Region"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship Region]"
+                      lineageId="Package\Data Flow Task\221:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Ship Country]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Ship Country"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship Country]"
+                      lineageId="Package\Data Flow Task\223:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Product ID]"
+                      cachedDataType="i4"
+                      cachedName="Product ID"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product ID]"
+                      lineageId="Package\Data Flow Task\225:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Unit Price]"
+                      cachedDataType="cy"
+                      cachedName="Unit Price"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      lineageId="Package\Data Flow Task\227:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="i2"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\Data Flow Task\229:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Discount]"
+                      cachedDataType="r4"
+                      cachedName="Discount"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
+                      lineageId="Package\Data Flow Task\231:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Territory ID]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Territory ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Territory ID]"
+                      lineageId="Package\Data Flow Task\233:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Region ID]"
+                      cachedDataType="i4"
+                      cachedName="Region ID"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region ID]"
+                      lineageId="Package\Data Flow Task\235:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Territory ]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Territory "
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Territory ]"
+                      lineageId="Package\Data Flow Task\237:invalid" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Region ]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Region "
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region ]"
+                      lineageId="Package\Data Flow Task\239:invalid" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Order ID]"
+                      dataType="i4"
+                      name="Order ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Customer ID]"
+                      dataType="wstr"
+                      length="5"
+                      name="Customer ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Employee ID]"
+                      dataType="i4"
+                      name="Employee ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Order Date]"
+                      dataType="dbTimeStamp"
+                      name="Order Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Required Date]"
+                      dataType="dbTimeStamp"
+                      name="Required Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Shipped Date]"
+                      dataType="dbTimeStamp"
+                      name="Shipped Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship Via]"
+                      dataType="i4"
+                      name="Ship Via" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Freight]"
+                      dataType="cy"
+                      name="Freight" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship Name]"
+                      dataType="wstr"
+                      length="40"
+                      name="Ship Name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship City]"
+                      dataType="wstr"
+                      length="15"
+                      name="Ship City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Ship Region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Ship Country]"
+                      dataType="wstr"
+                      length="15"
+                      name="Ship Country" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Product ID]"
+                      dataType="i4"
+                      name="Product ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Unit Price]"
+                      dataType="cy"
+                      name="Unit Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      dataType="i2"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Discount]"
+                      dataType="r4"
+                      name="Discount" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Territory ID]"
+                      dataType="wstr"
+                      length="20"
+                      name="Territory ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region ID]"
+                      dataType="i4"
+                      name="Region ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Territory ]"
+                      dataType="wstr"
+                      length="50"
+                      name="Territory " />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Region ]"
+                      dataType="wstr"
+                      length="50"
+                      name="Region " />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\DataSourceSalesOrderstableView.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="152,42.6666666666667"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="423.846141214555,543.07690689197" />
+        <NodeLayout
+          Size="234.666666666667,42.6666666666667"
+          Id="Package\Data Flow Task\DataSourceSalesOrderstableView"
+          TopLeft="146.999995619059,157.230764544927" />
+        <NodeLayout
+          Size="108,42.6666666666667"
+          Id="Package\Data Flow Task\Sort 1"
+          TopLeft="285.624987231568,342.549983665944" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="264.333328952392,199.897431211594">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.2916582791756,142.65255245435"
+              Start="0,0"
+              End="75.2916582791756,135.15255245435">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.326276227175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,67.326276227175"
+                    Point2="0,71.326276227175"
+                    Point3="4,71.326276227175" />
+                  <mssgle:LineSegment
+                    End="71.2916582791756,71.326276227175" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.2916582791756,71.326276227175"
+                    Point2="75.2916582791756,71.326276227175"
+                    Point3="75.2916582791756,75.326276227175" />
+                  <mssgle:LineSegment
+                    End="75.2916582791756,135.15255245435" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DataSourceSalesOrderstableView">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
