@@ -1,17 +1,15 @@
-### IMPLEMENTING A DATA-DRIVEN DECISION SYSTEM PART 1
+### END-TO-END ANALYTICS-DRIVEN ENTERPRISE DECISION SOLUTION  PART 1. (IMPLEMENTING AN ENTERPRISE DATA WAREHOUSE USING SSIS)
 
 **Introduction**
- 
- As more organization begin to look for ways to maximise their business' potential, improve operations and return on Investments, they begin by seeking ways to integrate data-driven decision making into daily operations to uncover insights, there's the initial confusion and exasperation regarding the starting point. A a standard practice, most businesses have data repositories in form of ERP (Enterprise Resource Planning) systems, Relational Databases in form of OLTP (Online Transactional Database) which houses all the data collected during regular operational hours, and from different sections of the business.
-  
-  One of the proposed solutions for this problem business face when looking for a solution that implements data-driven decision systems, is to first unify disparate data systems across the organization into a single repository. This Repository is the Enterprise data warehouse and serves as a data-driven reporistry for every business data that can be used to understand the drivers of success for the business. In its minimal form, it can be used for decriptive analytics where the historical nature of the data, can help understand business success based on past data points, and at its most powerful fucntional use, acts as a prescriptive analytical 'partner" where the data can be combined with machine learning models to derive insights about future performance based on current business performance.
+
+ - In today's competitive business landscape, organizations are constantly searching for ways to maximize their potential and improve operations. One popular approach is to integrate data-driven decision-making into daily operations to uncover insights. However, organizations often encounter confusion and frustration when starting the process. Fortunately, most businesses already have data repositories such as ERP (Enterprise Resource Planning) systems and relational databases like OLTP (Online Transactional Database) that store data collected from different areas of the organization during regular operational hours. 
+ - To implement data-driven decision systems successfully, one solution is to unify disparate data systems across the organization into a single repository. This repository is known as the enterprise data warehouse, a data-driven repository for all business data to be used for analytical purposes. It enables organizations to understand the drivers of success and provides insight into past performance using descriptive analytics. At its most powerful, the data warehouse acts as a prescriptive analytical 'partner,' combining data with machine learning models to derive insights about future performance based on current business performance.
+ - Implementing data-driven decision-making is essential for businesses to succeed in today's competitive landscape. By unifying data systems into a single repository, organizations can unlock the full potential of their data and gain valuable insights into their business operations.
     
 ### About Project
-  
-     This Project aims to explain the processes involed in building data warehouses to organizations looking to build their first Enterprise Data warehouse (EDW), assuming they currently have a data repositiory which can be used as the data source for the ETL (Extract, Transform and Load) pipelines. 
-     The OLTP source used for this project is the Northwind Database, which is representative of a small compnay or a department within a large organization. Using this Database illustrates the processes of converting an OLTP Database to an Enterprise data Warehouse Using SQL Server Integration Services (SSIS) 
+ - This project aims to explain the processes involved in building data warehouses for organizations looking to create their first Enterprise Data Warehouse (EDW), assuming they currently have a data repository that can be used as the data source for the ETL (Extract, Transform, and Load) pipelines. The OLTP source used for this project is the Northwind Database, which represents a small company or department within a large organization. This database serves as an example for converting an OLTP Database to an Enterprise Data Warehouse using SQL Server Integration Services (SSIS)."
      
-    Northwind Database Diagram
+									Northwind Database Diagram
     
   ![NorthWInd OLTP Diagram](https://user-images.githubusercontent.com/105971126/235525453-37222ea7-2c23-4eb8-a57e-735fff2483e5.png) 
 
@@ -22,81 +20,4 @@ The Dimensions Table are Employees, Customers, Suppliers, Products (including Ca
 
 Next Step is to create Views using the Table relationships to create the staging tables.
 
-### SQL Queries
 
-**Fact SalesOrders Table**
-
-CREATE VIEW FactSalesOrders_Staging
-AS
-SELECT Orders.OrderID, Customers.CustomerID, Employees.EmployeeID, Shippers.ShipperID, Territories.TerritoryID, 
-		Suppliers.SupplierID, Products.ProductID, 
-		Orders.OrderDate, Orders.RequiredDate, Orders.ShippedDate, Orders.ShipVia, Orders.Freight, Orders.ShipName, 
-        Orders.ShipAddress, Orders.ShipCity, Orders.ShipRegion, Orders.ShipPostalCode, Orders.ShipCountry, 
-		[Order Details].UnitPrice, [Order Details].Quantity, [Order Details].Discount
-FROM   Region 
-INNER JOIN
-             Territories ON Region.RegionID = Territories.RegionID 
-INNER JOIN
-             EmployeeTerritories ON Territories.TerritoryID = EmployeeTerritories.TerritoryID 
-INNER JOIN
-             Customers 
-INNER JOIN
-             Orders ON Customers.CustomerID = Orders.CustomerID 
-INNER JOIN
-             Employees ON Orders.EmployeeID = Employees.EmployeeID 
-INNER JOIN
-             [Order Details] ON Orders.OrderID = [Order Details].OrderID 
-INNER JOIN
-             Products ON [Order Details].ProductID = Products.ProductID 
-INNER JOIN
-             Shippers ON Orders.ShipVia = Shippers.ShipperID 
-INNER JOIN
-             Suppliers ON Products.SupplierID = Suppliers.SupplierID 
-		ON   EmployeeTerritories.EmployeeID = Employees.EmployeeID
-  
-**Dim Territories**
-
-CREATE VIEW DimTerritories_Staging
-AS SELECT Territories.TerritoryID, 
-		Territories.TerritoryDescription, 
-		Region.RegionDescription
-FROM   Region 
-INNER JOIN
-Territories ON Region.RegionID = Territories.RegionID
-
-**Dim Suppliers**
-
-CREATE VIEW DimSuppliers
-AS SELECT SupplierID, CompanyName, ContactName, ContactTitle, Address, City, Region, 
-PostalCode, Country, Phone, Fax, HomePage
-FROM   Suppliers
-
-**Dim Shippers**
-
-CREATE VIEW DimShippers_Staging
-AS SELECT ShipperID, CompanyName, Phone
-FROM   Shippers
-
-**Dim Products**
-
-CREATE VIEW DimProducts_Staging
-As SELECT Products.ProductID, Products.ProductName, Categories.CategoryName, 
-		Categories.De88scription, Products.QuantityPerUnit, Products.UnitPrice, Products.UnitsInStock, 
-		Products.UnitsOnOrder, Products.ReorderLevel, Products.Discontinued
-FROM   Categories INNER JOIN
-             Products ON Categories.CategoryID = Products.CategoryID
-             
-**Dim EMployees**
-
-CREATE VIEW DimEmployees_Staging
-AS SELECT EmployeeID, LastName, FirstName, BirthDate, HireDate, Address, 
-City, Region, PostalCode, Country, HomePhone, Extension, Notes, ReportsTo
-FROM   Employees
-
-
-**Dim Customers**
-
-CREATE VIEW DimCustomers
-AS SELECT CustomerID, CompanyName, ContactName, ContactTitle, Address, 
-City, Region, PostalCode, Country, Phone, Fax
-FROM   Customers
