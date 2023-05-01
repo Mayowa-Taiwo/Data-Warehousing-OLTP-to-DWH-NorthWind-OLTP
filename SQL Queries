@@ -1,0 +1,76 @@
+**Fact SalesOrders Table**
+
+CREATE VIEW FactSalesOrders_Staging
+AS
+SELECT Orders.OrderID, Customers.CustomerID, Employees.EmployeeID, Shippers.ShipperID, Territories.TerritoryID, 
+		Suppliers.SupplierID, Products.ProductID, 
+		Orders.OrderDate, Orders.RequiredDate, Orders.ShippedDate, Orders.ShipVia, Orders.Freight, Orders.ShipName, 
+        Orders.ShipAddress, Orders.ShipCity, Orders.ShipRegion, Orders.ShipPostalCode, Orders.ShipCountry, 
+		[Order Details].UnitPrice, [Order Details].Quantity, [Order Details].Discount
+FROM   Region 
+INNER JOIN
+             Territories ON Region.RegionID = Territories.RegionID 
+INNER JOIN
+             EmployeeTerritories ON Territories.TerritoryID = EmployeeTerritories.TerritoryID 
+INNER JOIN
+             Customers 
+INNER JOIN
+             Orders ON Customers.CustomerID = Orders.CustomerID 
+INNER JOIN
+             Employees ON Orders.EmployeeID = Employees.EmployeeID 
+INNER JOIN
+             [Order Details] ON Orders.OrderID = [Order Details].OrderID 
+INNER JOIN
+             Products ON [Order Details].ProductID = Products.ProductID 
+INNER JOIN
+             Shippers ON Orders.ShipVia = Shippers.ShipperID 
+INNER JOIN
+             Suppliers ON Products.SupplierID = Suppliers.SupplierID 
+		ON   EmployeeTerritories.EmployeeID = Employees.EmployeeID
+  
+**Dim Territories**
+
+CREATE VIEW DimTerritories_Staging
+AS SELECT Territories.TerritoryID, 
+		Territories.TerritoryDescription, 
+		Region.RegionDescription
+FROM   Region 
+INNER JOIN
+Territories ON Region.RegionID = Territories.RegionID
+
+**Dim Suppliers**
+
+CREATE VIEW DimSuppliers
+AS SELECT SupplierID, CompanyName, ContactName, ContactTitle, Address, City, Region, 
+PostalCode, Country, Phone, Fax, HomePage
+FROM   Suppliers
+
+**Dim Shippers**
+
+CREATE VIEW DimShippers_Staging
+AS SELECT ShipperID, CompanyName, Phone
+FROM   Shippers
+
+**Dim Products**
+
+CREATE VIEW DimProducts_Staging
+As SELECT Products.ProductID, Products.ProductName, Categories.CategoryName, 
+		Categories.De88scription, Products.QuantityPerUnit, Products.UnitPrice, Products.UnitsInStock, 
+		Products.UnitsOnOrder, Products.ReorderLevel, Products.Discontinued
+FROM   Categories INNER JOIN
+             Products ON Categories.CategoryID = Products.CategoryID
+             
+**Dim EMployees**
+
+CREATE VIEW DimEmployees_Staging
+AS SELECT EmployeeID, LastName, FirstName, BirthDate, HireDate, Address, 
+City, Region, PostalCode, Country, HomePhone, Extension, Notes, ReportsTo
+FROM   Employees
+
+
+**Dim Customers**
+
+CREATE VIEW DimCustomers
+AS SELECT CustomerID, CompanyName, ContactName, ContactTitle, Address, 
+City, Region, PostalCode, Country, Phone, Fax
+FROM   Customers
