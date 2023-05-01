@@ -1,4 +1,7 @@
-# NorthWindOLTPtoDWHProject
-Northwind OLTP ETL Package using SSIS
+### IMPLEMENTING A DATA-DRIVEN DECISION SYSTEM PART 1
 
-This Package is a simple ETL package to transform the fictional Nortwind Database to a Data Warehouse using  simple SSIS data transformations. 
+**Introduction**
+  As more organization begin to look for ways to maximise their business' potential, improve operations and return on Investment, cut costs and drill into their business data to uncover insights and drive data-driven decision making, there's a bit of the initial confusion and exasperation as to where to start from.understandably, most businesses currently have data repositories in form of ERP (ENterprise Resource Planning) systems, Relational Databases in form of OLTP (Online Trnasactional Database) which houses all the data collected during regular operational hours from different sections of the business and in most instances, departments within the same organization have different databases, where the same dimension but represented separately. this leads to redundacy in data systems, duplicity of effort and above all, poor business performance measurement as data sources are in disparate systems and not unified, which leads to independent perfromance managament instad of a cohesive data-driven decision making that is managed from the bottom up, through operational performance management to tactcical perfromance management and the Exceutive decision making and strtegy
+  
+  One of the proposed solutions for this problem business face when looking for a solution that implements data-driven decision systems ia to first unify data systems across the organization into one 
+  
